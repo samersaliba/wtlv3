@@ -1,0 +1,166 @@
+<!--#set var="ssiTitle" value="WTLV3 | Articles" -->
+<!--#include virtual="/admin/inc/head.shtml" -->
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+    <h1>
+      <i class="fa fa-folder-o"></i> Articles
+      <span data-popper=""></span>
+      <small>website articles</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="/admin/pages/"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Articles</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+
+	  <!-- Default box -->
+    <div class="default-box"></div>
+      
+	  <!-- Default modal -->
+	  <div id="editModal"></div>
+	  
+		<div id="form-body"  style="display: none">
+      <ul class="nav nav-tabs" id="myTab">
+        <li class="pull-right"><a href="#tab_3" data-toggle="tab">Format</a></li>
+        <li class="pull-right"><a href="#tab_2" data-toggle="tab">Text</a></li>
+			  <li class="active pull-right"><a href="#tab_1" data-toggle="tab">Article</a></li>
+			  <div class="h4">ID: <span id="idArticle"></span></div>
+			</ul>
+			<div class="tab-content">
+        <div class="tab-pane active" id="tab_1" dir="rtl">
+			
+          <div class="row" style="padding-top:20px">  
+            <div class="form-group col-md-3">
+              <label for="idDate">Article Date</label>
+              <input type="date" data-date-format="yyyy-mm-dd" class="form-control" id="idDate" name="date" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="idParent">Parent</label><span data-popper="Article Folder"></span>
+              <select id="idParent" name="parent" class="form-control" style="width: 100%;" required data-src="getArticles">
+                <option value="0">None</option>
+              </select>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="idUID">UID</label>
+              <input type="text" class="form-control" id="idUID" name="uid" placeholder="UID" maxlength="15" readonly>
+            </div>
+            <div class="form-group col-md-5">
+              <label for="idTitle">Title</label>
+              <input type="text" class="form-control" id="idTitle" name="title" placeholder="Title" required maxlength="65">
+            </div>
+            <div class="form-group col-md-7">
+              <label for="idDesc">Description</label>
+              <input type="text" class="form-control" id="idDesc" name="desc" placeholder="Description" required maxlength="255">
+            </div>
+            <div class="form-group col-md-12">
+              <label for="idKeywords">Keywords</label><span data-popper="Comma separated"></span>
+              <select id="idKeywords" name="keywords[]" multiple class="form-control" style="width: 100%;" data-tags="true">
+              <option value="book">Book</option>
+              <option value="book2">Book2</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="idIntroLine1">Intro Line 1</label>
+              <input type="text" class="form-control" id="idIntroLine1" name="introline1" placeholder="Intro Line 1" required maxlength="100">
+            </div>
+            <div class="form-group col-md-5">
+              <label for="idIntroLine2">Intro Line 2</label>
+              <input type="text" class="form-control" id="idIntroLine2" name="introline2" placeholder="Intro Line 2" required maxlength="100">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="idPicture">Picture</label>
+              <span data-popper="1200x500 px"></span>
+              <select id="idPicture" name="picture" class="form-control" style="width: 100%;" required data-src="getPictures">
+                <option value="0">None</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="idWriter">Writer</label>
+              <select id="idWriter" name="writer" class="form-control" style="width: 100%;" required data-src="getWriters">
+                <option value="0">None</option>
+              </select>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="idType">Article Type</label>
+              <span data-popper="Book: only for parent article of the book. Page: set free path."></span>
+              <select id="idType" name="type" class="form-control" style="width: 100%;" data-noselect2="true" required data-src="getArticleTypes">
+                
+              </select>
+            </div>
+            
+            <div class="form-group col-md-5">
+              <label for="idSource">Article Source</label>
+              <input type="text" class="form-control" id="idSource" name="source" placeholder="Article Source" maxlength="100">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="idFolder">Article Folder</label>
+              <span data-popper="Used to create path"></span>
+              <input type="text" class="form-control" id="idFolder" name="folder" placeholder="Article Folder"  maxlength="100">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="idPath">Article Path</label>
+              <span data-popper="Link to page"></span>
+              <input type="text" class="form-control" id="idPath" name="path" placeholder="Article Path" required maxlength="100">
+            </div>
+            <div class="form-group col-md-2">
+              <label for="idDeleted">Deleted?</label>
+              <select id="idDeleted" name="deleted" class="form-control" style="width: 100%;" required>
+                <option value="N">No</option>
+                <option value="Y">Yes</option>
+              </select>
+            </div>
+          </div>
+        </div> 
+        <div class="tab-pane" id="tab_2" dir="rtl">
+          <div class="row">
+            <div class="form-group col-md-12">
+              <label for="idText">Text</label>
+              <textarea style="font-family: 'Courier New'" class="form-control" id="idText" name="text" required placeholder="Text" maxlength="16777215" rows="20"></textarea>
+              <small>Atl + 09 = Tab</small>
+            </div>
+          </div>				
+        </div>
+        <div class="tab-pane" id="tab_3">
+          <div class="row">
+            <div class="form-group col-md-12">
+              <label for="idInfo">Info</label>
+
+<pre id="idInfo">
+<code>&lt;section&gt;
+  &lt;h5&gt;Section title (sticky inside the section)&lt;/h5&gt;
+  &lt;h5&gt;&lt;small&gt;Small text under the section title
+  &lt;p&gt;Every text should be inside it
+  &lt;p class="text-secondary"&gt; Shows text with gray color, usually for top summary.
+  &lt;small data-verse="1Peter3:15"&gt;1 بطرس 3: 15&lt/small&gt; Small Bible verse. You can also just type any Bible verse reference without this tag.
+  &lt;q class="main-quote"&gt; Displays enlarged text in center of page
+  &lt;span class="verse"&gt;&lt;q&gt;<span dir="rtl">«الحق الحق أقول لكم قبل أن يكون إبراهيم أنا كائن»</span>
+  &lt;sup data-ref="" data-url="(optional)"&gt;Add a footnote
+  &lt;li&gt;Bullets
+  &lt;blockquote&gt;Blockquote with line at the right
+&lt;/section&gt;
+
+
+
+</code></pre>
+
+            </div>
+          </div>
+        </div>
+			  
+			</div>
+      <!-- /.tab-content -->
+
+	  </div> <!-- /#form-body -->
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<!--#include virtual="/admin/inc/foot.shtml" -->
+<script src="script.js"></script>

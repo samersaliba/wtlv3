@@ -1,0 +1,149 @@
+<!--#set var="ssiTitle" value="SOMP | Work time" -->
+<!--#include virtual="/admin/inc/head.shtml" -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        <i class="fa fa-industry"></i> Work Time
+		<span data-popper=""></span>
+        <small></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/admin/pages/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Work Time</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="default-box"></div>
+      
+	  <!-- Default modal -->
+	  <div id="editModal"></div>
+	  
+		<div id="form-body"  style="display: none">
+			<ul class="nav nav-tabs" id="myTab">
+			  <li class="active pull-right"><a href="#tab_1" data-toggle="tab">Work Time</a></li>
+			  <div class="h4">Work Time</div>
+			</ul>
+			<div class="tab-content">
+              <div class="tab-pane active" id="tab_1">
+     
+		<div class="row" style="padding-top:20px">  
+		  <div class="form-group col-md-3">
+		    <label for="idDate">Date</label>
+			<div class="input-group date">
+				<input type="date" data-date-format="yyyy-mm-dd" class="form-control" id="idDate" name="date" required>
+				<div class="input-group-addon">
+					<i class="fa fa-calendar"></i>
+                </div>
+            </div>
+		  </div>
+		  <div class="form-group col-md-3">
+            <label for="idWorker">Worker</label>
+			<select id="idWorker" name="workerid" class="form-control" style="width: 100%;" required data-src="getUsers">
+			<option value=""></option>
+			</select>
+          </div>
+		</div>
+		
+		
+		<div class="row">
+		  <div class="form-group col-md-6">
+            <label for="idJob">Job</label>
+			<select id="idJob" name="jobid" class="form-control" style="width: 100%;" data-src="getJobs" data-allowclear="true" required>
+			<option value="0">None</option>
+			</select>
+          </div>
+		  <div class="form-group col-md-3">
+            <label for="idWork">Work</label>
+			<span data-popper="<b>Leave</b> = time off. If full day leave then time will be 9.5 Hrs."></span>
+			<select id="idWork" name="work" class="form-control" style="width: 100%;" data-allowclear="true">
+			<option value=""></option>
+			<option value="Cleaning">Cleaning</option>
+			<option value="Leave">Leave</option>
+			<option value="Maintenance">Maintenance</option>
+			<option value="Market">Market</option>
+			<option value="Nothing">Nothing</option>
+			<option value="Site Visit">Site Visit</option>
+			<option value="Stock">Stock</option>
+			<optgroup label="Work Type">
+			<option value="Assembly">Assembly</option>
+			<option value="Balancing">Balancing</option>
+			<option value="Time Sheet">Casting</option>
+			<option value="Cutting">Cutting</option>
+			<option value="Dis-assembly">Dis-assembly</option>
+			<option value="Drilling">Drilling</option>
+			<option value="Engineering">Engineering</option>
+			<option value="Gear Hobbing">Gear Hobbing</option>
+			<option value="Grinding">Grinding</option>
+			<option value="Heat treating">Heat treating</option>
+			<option value="Lighting">Lighting</option>
+			<option value="Loading/Unloading">Loading/Unloading</option>
+			<option value="Logo">Logo</option>
+			<option value="Machining">Machining</option>
+			<option value="Manwork">Manwork</option>
+			<option value="Metalwork">Metalwork</option>
+			<option value="Milling">Milling</option>
+			<option value="Outsourced">Outsourced</option>
+			<option value="Painting">Painting</option>
+			<option value="Parts">Parts</option>
+			<option value="Repair">Repair</option>
+			<option value="Raw Material">Raw Material</option>
+			<option value="Sandblasting">Sandblasting</option>
+			<option value="Setup">Setup</option>
+			<option value="Testing">Testing</option>
+			<option value="Transportation">Transportation</option>
+			<option value="Welding">Welding</option>
+			</optgroup>
+			</select>
+          </div>
+		  <div class="form-group col-md-3">
+            <label for="idNote">Work Note</label>
+			<span data-popper="Day off - Day off (UPL) - 1/2 day off - Leave at # - Visit doctor"></span>
+            
+			<select id="idNote" name="note" class="form-control" style="width: 100%;" data-tags="true">
+			 <option value="" selected></option>
+			 <option value="Day off">Day off</option>
+			 <option value="Day off (UPL)">Day off (UPL)</option>
+			 <option value="1/2 day off">1/2 day off</option>
+			 <option value="Leave at ">Leave at </option>
+			 <option value="Visit ">Visit </option>
+			</select>
+          </div>
+		</div>
+		<div class="row">
+		  <div class="form-group col-md-3">
+            <label for="idHours">Regular Hr. Worked</label> 
+			<input type="number" class="form-control" id="idHours" name="hours" placeholder="Hours" required min="0" max="24" step="0.01">
+          </div>
+		  <div class="form-group col-md-3">
+            <label for="idHoursot" class="text-danger">Overtime Hr. Worked</label> 
+			<input type="number" class="form-control" id="idHoursot" name="hoursot" placeholder="Hours Overtime" required min="0" max="24" step="0.01" value="0">
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idHoursoti" class="text-danger"><small>Equivalent to Hr.</small></label> 
+			<input type="number" class="form-control" id="idHoursoti" name="hoursoti" placeholder="" readonly  value="0">
+          </div>
+		</div>
+		<div class="row">
+		  <div class="col-md-12">
+			<small></small>
+		  </div>
+		<div>
+
+			  </div> <!-- /#tab_1 -->
+			</div> <!-- /.tab-content -->
+
+	  </div> <!-- /#form-body -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+<!--#include virtual="/admin/inc/foot.shtml" -->
+<script src="script.js"></script>

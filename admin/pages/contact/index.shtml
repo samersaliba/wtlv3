@@ -1,0 +1,133 @@
+<!--#set var="ssiTitle" value="SOMP | Contacts" -->
+<!--#include virtual="/admin/inc/head.shtml" -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        <i class="fa fa-users"></i> Contacts
+		<span data-popper="Contacts"></span>
+        <small></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/admin/pages/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Contacts</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="default-box"></div>
+      
+	  <!-- Default modal -->
+	  <div id="editModal"></div>
+	  
+       
+		<div id="form-body"  style="display: none">
+            <ul class="nav nav-tabs" id="myTab">
+			  <li class="active pull-right"><a href="#tab_1" data-toggle="tab">Contact</a></li>
+			  <div class="h4">Contacts</div>
+			</ul>
+			<div class="tab-content">
+              <div class="tab-pane active" id="tab_1">
+			
+        <div class="row" style="padding-top:20px">  
+		  <div class="form-group col-md-3">
+            <label for="idCompanyID">Company</label>
+			<span id="idCompanyIDtxt" style="color:red" title="Deleted Item"></span>
+			<select id="idCompanyID" name="companyid" class="form-control" style="width: 100%;" data-src="getCompanies" data-allowclear="true">
+			<option value=""></option>
+			</select>
+          </div>
+		  <div class="form-group col-md-3">
+            <label for="idName">Name</label>
+            <input type="text" class="form-control" id="idName" name="first" required placeholder="Name" maxlength="100">
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idShortName">Short Name</label>
+            <input type="tel" class="form-control" id="idShortName" name="shortname" required placeholder="Short Name" maxlength="50">
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idPhone1">Phone 1</label>
+            <input type="tel" class="form-control" id="idPhone1" name="phone1" placeholder="## ### ###"  maxlength="50" pattern="(\d{2} \d{3} \d{3})">
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idPhone2">Phone 2</label>
+            <input type="tel" class="form-control" id="idPhone2" name="phone2" placeholder="## ### ###"  maxlength="50" pattern="(\d{2} \d{3} \d{3})">
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idFax">Fax</label>
+            <input type="tel" class="form-control" id="idFax" name="fax" placeholder="## ### ###"  maxlength="50" pattern="(\d{2} \d{3} \d{3})">
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idCell">Cell</label>
+            <input type="tel" class="form-control" id="idCell" name="cell" placeholder="## ### ###"  maxlength="50" pattern="(\d{2} \d{3} \d{3})">
+          </div>
+		  <div class="form-group col-md-3">
+            <label for="idEmail">E-mail</label>
+            <input type="email" class="form-control" id="idEmail" name="email" placeholder="someone@domain.com"  maxlength="50" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
+          </div>
+		  <div class="form-group col-md-5">
+            <label for="idAddress">Address</label>
+            <input type="text" class="form-control" id="idAddress" name="address" placeholder="Building, Street, City"  maxlength="50">
+          </div>
+		  <div class="form-group col-md-6">
+            <label for="idDescription">Description</label>
+            <input type="text" class="form-control" id="idDescription" name="desc" placeholder="Type of contact job"  maxlength="50">
+          </div>
+		  <div class="form-group col-md-4">
+            <label for="idWeb">Web</label>
+            <input type="url" class="form-control" id="idWeb" name="web" placeholder="http://"  maxlength="50" pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)">
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idTVA">TVA</label>
+              <select id="idTVA" name="tva" class="form-control">
+				<option value=""></option>
+				<option value="+VAT">+VAT</option>
+				<option value="TTC">TTC</option>
+			  </select>
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idiscompany">Is Company?</label>
+              <select id="idiscompany" name="iscompany" class="form-control" required>
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			  </select>
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idissupplier">Is Supplier?</label>
+              <select id="idissupplier" name="issupplier" class="form-control" required>
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			  </select>
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idisclient">Is Client?</label>
+              <select id="idisclient" name="isclient" class="form-control" required>
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			  </select>
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idisservicesupplier">Service Supplier?</label>
+              <select id="idisservicesupplier" name="isservicesupplier" class="form-control" required>
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			  </select>
+          </div>
+		</div>
+		
+			  </div> <!-- /#tab_1 -->
+			</div> <!-- /.tab-content -->
+
+		</div> <!-- /#form-body -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+<!--#include virtual="/admin/inc/foot.shtml" -->
+<script src="script.js"></script>

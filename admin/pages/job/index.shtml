@@ -1,0 +1,229 @@
+<!--#set var="ssiTitle" value="SOMP | Jobs" -->
+<!--#include virtual="/admin/inc/head.shtml" -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+      <h1>
+        <i class="fa fa-folder-o"></i> Jobs
+		<span data-popper=""></span>
+        <small>clients orders</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/admin/pages/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Jobs</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+	  <!-- Default box -->
+      <div class="default-box"></div>
+      
+	  <!-- Default modal -->
+	  <div id="editModal"></div>
+	  
+		<div id="form-body"  style="display: none">
+            <ul class="nav nav-tabs" id="myTab">
+			  <li class="pull-right"><a href="#tab_7" data-toggle="tab">Timesheet</a></li>
+			  <li class="pull-right"><a href="#tab_6" data-toggle="tab">Work</a></li>
+			  <li class="pull-right"><a href="#tab_5" data-toggle="tab">Stock</a></li>
+			  <li class="pull-right"><a href="#tab_4" data-toggle="tab">PO</a></li>
+			  <li class="pull-right"><a href="#tab_3" data-toggle="tab">Files</a></li>
+			  <li class="pull-right"><a href="#tab_2" data-toggle="tab">Notes</a></li>
+			  <li class="active pull-right"><a href="#tab_1" data-toggle="tab">Job</a></li>
+			  <div class="h4">Job: N<span id="idJobID"></span></div>
+			</ul>
+			<div class="tab-content">
+              <div class="tab-pane active" id="tab_1">
+			
+        <div class="row" style="padding-top:20px">  
+		  <div class="form-group col-md-3">
+            <label for="idClient">Client</label>
+			<select id="idClient" name="clientid" class="form-control" style="width: 100%;" required data-src="getCompanies">
+			<option value=""></option>
+			</select>
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idTheirNo">Their No.</label>
+            <input type="text" class="form-control" id="idTheirNo" name="theirno" placeholder="Their No." maxlength="50">
+          </div>
+		  <div class="form-group col-md-7">
+            <label for="idDesc">Description</label>
+            <input type="text" class="form-control" id="idDesc" name="desc" placeholder="Description" required maxlength="250">
+          </div>
+		</div>
+		<div class="row">
+		  <div class="form-group col-md-3">
+            <label for="idContact">Contact</label>
+			<select id="idContact" name="contactid" class="form-control" style="width: 100%;" data-src="getContacts" required>
+			<option value="0">None</option>
+			</select>
+          </div>
+		  <div class="form-group col-md-3">
+		    <label for="idRequestDate">Request Date</label>
+			<input type="date" data-date-format="yyyy-mm-dd" class="form-control" id="idRequestDate" name="requestdate" required>
+		  </div>
+		  
+		  <div class="form-group col-md-3">
+            <label for="idNumber">System Number</label>
+            <input type="text" class="form-control" id="idNumber" name="number" placeholder="Number" maxlength="30">
+          </div>
+		  <div class="form-group col-md-3">
+            <label for="idServicesupplier">Service Supplier</label>
+			<select id="idServicesupplier" name="servicesupplier" class="form-control" style="width: 100%;" data-allowclear="true" data-src="getServiceSuppliers">
+			<option value=""></option>
+			</select>
+          </div>
+		</div>
+		<div class="row">
+		  
+		  <div class="form-group col-md-2">
+            <label for="idOfferValueLBP">Offer Value LBP</label>
+            <input type="text" class="form-control" id="idOfferValueLBP" name="offervaluelbp" required value="0" placeholder="Offer Value LBP" maxlength="14" step="1">
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idOfferValueUSD">Offer Value USD</label>
+            <input type="number" class="form-control" id="idOfferValueUSD" name="offervalueusd" pattern="[0-9.,]{1,14}" required value="0.00" placeholder="Offer Value USD" maxlength="14" step="0.01">
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idVersion">Version</label>
+            <input type="number" class="form-control" id="idVersion" name="version" placeholder="Version" max="10" min="1" required value="1">
+          </div>
+		  <div class="form-group col-md-3">
+		    <label for="idOfferDate">Offer Date</label>
+			<input type="date" data-date-format="yyyy-mm-dd" class="form-control" id="idOfferDate" name="offerdate">
+		  </div>
+		  <div class="form-group col-md-3">
+            <label for="idEstDelDays">Estimated Delivery (days)</label>
+            <input type="number" class="form-control" id="idEstDelDays" name="estdeldays" placeholder="Estimated Delivery"  max="300" min="0" step="1">
+          </div>
+		</div>
+		<div class="row">
+		  <div class="form-group col-md-3">
+            <label for="idOfferStatus">Offer Status</label>
+			<select id="idOfferStatus" name="offerstatus" class="form-control" style="width: 100%;">
+			<option value=""></option>
+			<option value="Time Sheet" class="bg-primary">Time Sheet</option>
+			<option value="Outsourced">Outsourced</option>
+			<option value="Pricing" class="bg-info">Pricing</option>
+			<option value="Pending" class="bg-warning">Pending</option>
+			<option value="Approved" class="bg-success">Approved</option>
+			<option value="Cancelled" class="bg-secondary">Cancelled</option>
+			<option value="Rejected" class="bg-danger">Rejected</option>
+			</select>
+          </div>
+		  <div class="form-group col-md-3">
+		    <label for="idApprovalDate">Approval Date</label>
+			<input type="date" data-date-format="yyyy-mm-dd" class="form-control" id="idApprovalDate" name="approvaldate">
+		  </div>
+		  <div class="form-group col-md-3">
+		    <label for="idEstimatedDelivery">Estimated Delivery Date</label>
+			<span data-popper="Approval Date + Estimated Delivery (days). Updated when either values change."></span>
+			<input type="date" data-date-format="yyyy-mm-dd" class="form-control" id="idEstimatedDelivery" name="estimateddelivery">
+		  </div>
+		  <div class="form-group col-md-3 form-bg-1">
+            <label for="idCurrentWorker">Current Worker</label>
+			<span data-popper="Worker who is currently working on the order."></span>
+			<select id="idCurrentWorker" name="currentworkerid" class="form-control" style="width: 100%;" data-src="getUsers">
+			<option value="0">None</option>
+			</select>
+          </div>
+		</div>
+		<div class="row">
+		  <div class="form-group col-md-2 form-bg-1">
+            <label for="idWorkStatus">Work Status</label>
+			<select id="idWorkStatus" name="workstatus" class="form-control" style="width: 100%;">
+			<option value=""></option>
+			<option value="Not started" class="bg-danger">Not started</option>
+			<option value="In progress" class="bg-success">In progress</option>
+			<option value="Paused" class="bg-warning">Paused</option>
+			<option value="Finished" class="bg-secondary">Finished</option>
+			</select>
+          </div>
+		  
+		  <div class="form-group col-md-4 form-bg-1">
+            <label for="idActionRequired">Action Required</label>
+            <input type="text" class="form-control" id="idActionRequired" name="actionrequired" placeholder="Action Required" maxlength="50">
+          </div>
+		  <div class="form-group col-md-3 form-bg-1">
+		    <label for="idOrderStart">Order Start</label>
+			<input type="date" data-date-format="yyyy-mm-dd" class="form-control" id="idOrderStart" name="orderstart">
+		  </div>
+		  
+		  <div class="form-group col-md-3 form-bg-1">
+		    <label for="idOrderFinish">Order Finish</label>
+			<input type="date" data-date-format="yyyy-mm-dd" class="form-control" id="idOrderFinish" name="orderfinish">
+		  </div>
+		</div>
+		<div class="row">
+		  
+		  <div class="form-group col-md-3 form-bg-2">
+		    <label for="idDeliveryDate">Delivery Date</label>
+			<input type="date" data-date-format="yyyy-mm-dd" class="form-control" id="idDeliveryDate" name="deliverydate">
+		  </div>
+		  <div class="form-group col-md-2 form-bg-2">
+            <label for="idDelOrdNum">OD No.</label>
+			<span data-popper="Order Delivery Number. Number on paper slip done upon delivery."></span>
+            <input type="number" class="form-control" id="idDelOrdNum" name="delordnum" placeholder="Delivery Order Number" min="0" max="9999" step="1">
+          </div>
+		  
+		  <div class="form-group col-md-2">
+            <label for="idInvoiceValueLBP">Invoice Value LBP</label>
+            <input type="text" class="form-control" id="idInvoiceValueLBP" name="invoicevaluelbp" required value="0" placeholder="Invoice Value LBP" maxlength="14" step="1">
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idInvoiceValueUSD">Invoice Value USD</label>
+            <input type="number" class="form-control" id="idInvoiceValueUSD" name="invoicevalueusd" pattern="[0-9.,]{1,14}" required value="0.00" placeholder="Invoice Value USD" maxlength="14" step="0.01">
+          </div>
+	  
+		  <div class="form-group col-md-3">
+		    <label for="idInvoiceDate">Invoice Date</label>
+			<input type="date" data-date-format="yyyy-mm-dd" class="form-control" id="idInvoiceDate" name="invoicedate">
+		  </div>
+		</div>
+		
+
+		</div>
+		<div class="tab-pane" id="tab_2">
+		<div class="row">
+		  <div class="form-group col-md-12">
+            <label for="idNote">Note</label>
+			<textarea style="font-family: 'Courier New'" class="form-control" id="idNote" name="note" placeholder="Note" maxlength="65000" rows="20"></textarea>
+			<small>Atl + 09 = Tab</small>
+          </div>
+		</div>				
+		</div>
+		<div class="tab-pane" id="tab_3">
+      <div id="folder"></div>
+    </div>
+      
+            
+		<div class="tab-pane" id="tab_4">
+				<table id="po" class="table no-margin" width="100%"></table>
+		</div>
+		<div class="tab-pane" id="tab_5">
+				<table id="stock" class="table no-margin" width="100%"></table>
+		</div>
+		<div class="tab-pane" id="tab_6">
+				<table id="work" class="table no-margin" width="100%"></table>
+		</div>
+		<div class="tab-pane" id="tab_7">
+				<table id="timesheet" class="table no-margin" width="100%"></table>
+		</div>
+			  
+			  
+			  </div>
+            <!-- /.tab-content -->
+
+	  </div> <!-- /#form-body -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+<!--#include virtual="/admin/inc/foot.shtml" -->
+<script src="script.js"></script>
+<script src="/admin/plugins/jquery-upload/jquery.upload.js"></script>

@@ -1,0 +1,213 @@
+<!--#set var="ssiTitle" value="SOMP | Stock" -->
+<!--#include virtual="/admin/inc/head.shtml" -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        <i class="fa fa-wrench"></i> Stock<span data-popper="Stock"></span>
+		<small>When adding, also add stock change L was=0</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/admin/pages/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Stock</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="default-box"></div>
+      
+	  <!-- Default modal -->
+	  <div id="editModal"></div>
+	  
+		<div id="form-body"  style="display: none">
+            <ul class="nav nav-tabs" id="myTab">
+			  <li class="pull-right"><a href="#tab_4" data-toggle="tab" title="PO for machine parts">PO</a></li>
+			  <li class="pull-right"><a href="#tab_3" data-toggle="tab">Check List</a></li>
+			  <li class="pull-right"><a href="#tab_2" data-toggle="tab">Change List</a></li>
+			  <li class="active pull-right"><a href="#tab_1" data-toggle="tab">Stock Item</a></li>
+			  <div class="h4">Stock</div>
+			</ul>
+			<div class="tab-content">
+              <div class="tab-pane active" id="tab_1">
+			
+        <div class="row" style="padding-top:20px">  
+		  <div class="form-group col-md-4">
+            <label for="idType">Type</label>
+			<select id="idType" name="type" class="form-control" style="width: 100%;" data-src="getStockTypes" data-allowclear="false" required>
+			<option value=""></option>
+			</select>
+			<small id="idTypeSys"></small>
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idCode">Code</label>
+			<span data-popper="<b>M#</b> = Machine (See machines sheet)
+<b>TL#</b> = Tool
+<b>LAB#</b> = Testing device <i>[previous devices can have PO attached]</i>
+<b>MAN#</b> = Manual
+<b>ST#</b> = Steel
+Round bar, Bushing, plate, rod, profile, hex ex: <b>Steel 42CrMo4 Bushing Ø120xØ110x300 mm.</b> Always change sticker with new length when cutting a piece & put old sticker on the bonn
+<b>SS#</b> = Stainless steel
+<b>AL#</b> = Aluminum
+<b>BR#</b> = Bronze
+<b>NM#</b> = None metal
+<b>CU#</b> = Copper
+<b>PT#</b> = Part:spare part, electric part, nut, mill hear, drill bit, bolt, electrode
+<b>K?#</b> = Keys. Followed by code on key.
+"></span>
+			<small id="idCodeText"></small>
+            <input type="text" class="form-control" id="idCode" name="code" placeholder="Code" required maxlength="20">
+			<small id="idEntryDateSys"></small>
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idSystem">System</label>
+           	<select id="idSystem" name="system" class="form-control" style="width: 100%;" required>
+			<option value=""></option>
+			<option value="N">No</option>
+			<option value="Y">Yes</option>
+			</select>
+			<small id="idSystemSys"></small>
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idX" class="planMap">Coordinates </label>
+			<input type="text" class="form-control" id="idX" name="x" min="0" maxlength="10">
+          </div>
+		</div>
+		
+		<div class="row"> 
+		  <div class="form-group col-md-5">
+            <label for="idLocation" class="planMap">Location 
+			<span data-popper="<b>C#?</b> = Closet eg: C13A = closet C13 top shelf
+			<b>W#</b> = Warehouse
+			<b>R#</b> = Room
+			<b>A#</b> = Area
+			<b>S#?</b> = Shelf eg: S1A = Shelf 1 top shelf.</br>
+			Locations for keys =Keychain, Box 1/2/3, Bluebox, Person Name"></span>
+			</label>
+			<span id="idLocation2" class="text-danger" title="Last checked"></span>
+			<select id="idLocation" name="location" class="form-control" style="width: 100%;" data-src="getLocations" data-allowclear="false" required>
+			<option value="-">-</option>
+			</select>
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idDim1">Dext/W/Hex mm</label>
+            <input type="number" class="form-control" id="idDim1" name="dim1" pattern="[0-9.]{1,14}" required placeholder="mm"  maxlength="8" step="0.01" value="0.00">
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idDim2">Dint/th mm</label>
+            <input type="number" class="form-control" id="idDim2" name="dim2" pattern="[0-9.]{1,14}" required placeholder="mm"  maxlength="8" step="0.01" value="0.00">
+          </div>
+		  <div class="form-group col-md-3">
+            <label for="idDim3">L/Qty</label> 
+			<span data-popper="This is the qty being checked. For parts, 0 means it is borrowed."></span>
+			<span id="idQty2" class="text-danger" title="Last checked"></span>
+            
+			
+			 <div class="input-group">
+				<input type="number" class="form-control" id="idDim3" name="dim3" pattern="[0-9.]{1,14}" required maxlength="8" step="0.01" value="0.00" style="width: 58%;margin-right:-1px">
+				
+                
+                  <select id="idDimUnit" name="dimunit" class="form-control" required style="width: 42%" data-src="getUnits">
+					<option value=""></option>
+				  </select>
+                
+			  </div>
+			
+			
+          </div>
+		</div>
+		
+		<div class="row">  
+		  <div class="form-group col-md-2">
+            <label for="idMaterial">Material</label>
+			<select id="idMaterial" name="material" class="form-control" style="width: 100%;" data-src="getMaterials" data-allowclear="true">
+			<option value=""></option>
+			</select>
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idShape">Shape</label>
+			<select id="idShape" name="shape" class="form-control" style="width: 100%;" data-src="getShapes" data-allowclear="true">
+			<option value=""></option>
+			</select>
+          </div>
+		  <div class="form-group col-md-4">
+            <label for="idQty">Qty <span data-popper="Qty greater than 0 will undelete the item. This is manually modofied to reflect calculated value of item. If item borrowed then do not change."></span><span id="weight" class="font-weight-normal"></span></label>
+              <div class="input-group">
+				<input type="number" class="form-control" id="idQty" name="qty" placeholder="Quantity" required maxlength="8" step="0.01" style="width: 58%;margin-right:-1px">
+                
+                  <select id="idUnit" name="unit" class="form-control" required style="width: 42%" data-src="getUnits">
+					<option value=""></option>
+				  </select>
+				  <small id="idQtySys"></small>
+                
+			  </div>
+              <!-- /btn-group -->
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idMinQty">Min Qty</label>
+			<input type="number" class="form-control" id="idMinQty" name="minqty" placeholder="Minimum Quantity" required maxlength="8" step="1">
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idPOnumber">P.O. Number</label>
+            <input type="number" class="form-control" id="idPOnumber" name="ponumber" placeholder="P.O. Number" required  maxlength="10" value="0">
+          </div>
+		  
+		</div>
+		
+		<div class="row">  
+		  <div class="form-group col-md-2">
+            <label for="idStock">Stock </label>
+            <input type="number" class="form-control" id="idStock" name="stock" pattern="[0-9.]{1,14}" placeholder="Stock" required maxlength="8" step="0.01" value="0">
+          </div>
+		  <div class="form-group col-md-4">
+            <label for="idDesc">Description<span data-popper="Change in Stock Change"></span></label>
+            <input type="text" class="form-control" id="idDesc" name="desc" placeholder="Description" required maxlength="100" readonly>
+			<small id="idDescSys"></small>
+          </div>
+		  
+		  <div class="form-group col-md-2">
+            <label for="idPriceUSD">Unit Price USD</label>
+            <input type="number" class="form-control" id="idPriceUSD" name="priceusd" pattern="[0-9.]{1,14}" placeholder="USD" required maxlength="14" step="0.01">
+			<small id="idPriceUSDSys"></small>
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idPriceLBP">Unit Price LBP</label>
+            <input type="number" class="form-control" id="idPriceLBP" name="pricelbp" pattern="[0-9.,]{1,14}" placeholder="LBP" required maxlength="14" step="1">
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idPriceEUR">Unit Price EUR</label>
+            <input type="number" class="form-control" id="idPriceEUR" name="priceeur" pattern="[0-9.]{1,14}" placeholder="EUR" required maxlength="14" step="0.01">
+          </div>
+		</div>
+		<div class="row">
+			<div class="col-md-12"><small>*Each item should have a separate record even if the same with others, unless the quantity is large (eg: bolts) or can be taken from (eg: liquids)</small></div>
+		</div>
+				
+			  </div>
+			  <div class="tab-pane" id="tab_2">
+				<table id="stockchange" class="table no-margin" width="100%"></table>
+              </div>
+              <!-- /.tab-pane -->
+              <div class="tab-pane" id="tab_3">
+				<table id="stockcheck" class="table no-margin" width="100%"></table>
+              </div>
+              <!-- /.tab-pane -->
+			  <div class="tab-pane" id="tab_4">
+				<table id="po" class="table no-margin" width="100%"></table>
+              </div>
+			  
+			  </div>
+            <!-- /.tab-content -->
+
+	  </div> <!-- /#form-body -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+<!--#include virtual="/admin/inc/foot.shtml" -->
+<script src="script.js"></script>

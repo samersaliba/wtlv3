@@ -1,0 +1,154 @@
+<!--#set var="ssiTitle" value="SOMP | Timesheet" -->
+<!--#include virtual="/admin/inc/head.shtml" -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+      <h1>
+        <i class="fa fa-table"></i> Timesheet
+		<span data-popper=""></span>
+        <small>Order Pricing</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/admin/pages/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Timesheet</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+	  <!-- Default box -->
+      <div class="default-box"></div>
+      
+	  <!-- Default modal -->
+	  <div id="editModal"></div>
+	  
+		<div id="form-body"  style="display: none">
+            <ul class="nav nav-tabs" id="myTab">
+			  <li class="active pull-right"><a href="#tab_1" data-toggle="tab">Timesheet</a></li>
+			  <div class="h4">Timesheet</div>
+			</ul>
+			<div class="tab-content">
+              <div class="tab-pane active" id="tab_1">
+			
+        <div class="row" style="padding-top:20px"> 
+		  <div class="form-group col-md-5">
+            <label for="idJob">Job</label>
+			<select id="idJob" name="jobid" class="form-control" style="width: 100%;" data-src="getJobs" data-allowclear="true" required>
+			<option value="0">None</option>
+			</select>
+          </div>
+		  <div class="form-group col-md-3">
+		    <label for="idDate" class="text-primary">Date</label>
+			<div class="input-group date">
+				<input type="date" data-date-format="yyyy-mm-dd" class="form-control" id="idDate" name="date" required>
+				<div class="input-group-addon">
+					<i class="fa fa-calendar"></i>
+                </div>
+            </div>
+		  </div>
+		  <div class="form-group col-md-2">
+            <label for="idVersion">Version</label>
+            <input type="number" class="form-control" id="idVersion" name="version" placeholder="Version" max="10" min="1" required value="1">
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idSection">Section</label>
+            <input type="text" class="form-control" id="idSection" name="section" placeholder="Section" maxlength="50">
+          </div>
+		  <div class="form-group col-md-3">
+            <label for="idWork">Work</label>
+			<select id="idWork" name="work" class="form-control" style="width: 100%;">
+			<option value=""></option>
+			<option value="Time Sheet">Casting</option>
+			<option value="Grinding">Grinding</option>
+			<option value="Machining">Machining</option>
+			<option value="Milling">Milling</option>
+			<option value="Heat treating">Heat treating</option>
+			<option value="Welding">Welding</option>
+			<option value="Gear Hobbing">Gear Hobbing</option>
+			<option value="Assembly">Assembly</option>
+			<option value="Dis-assembly">Dis-assembly</option>
+			<option value="Balancing">Balancing</option>
+			<option value="Cutting">Cutting</option>
+			<option value="Drilling">Drilling</option>
+			<option value="Setup">Setup</option>
+			<option value="Repair">Repair</option>
+			<option value="Sandblasting">Sandblasting</option>
+			<option value="Transportation">Transportation</option>
+			<option value="Manwork">Manwork</option>
+			<option value="Painting">Painting</option>
+			<option value="Engineering">Engineering</option>
+			<option value="Testing">Testing</option>
+			<option value="Raw Material">Raw Material</option>
+			<option value="Parts">Parts</option>
+			<option value="Outsourced">Outsourced</option>
+			</select>
+          </div>
+		  <div class="form-group col-md-3">
+            <label for="idWorker">Worker</label>
+			<span data-popper="Worker who works on the order."></span>
+			<select id="idWorker" name="workerid" class="form-control" style="width: 100%;" data-src="getUsers" required>
+			<option value="0">None</option>
+			</select>
+          </div>
+		  <div class="form-group col-md-6">
+            <label for="idSupplier">Supplier</label>
+			<span id="idSuppliertxt" style="color:red" title="Deleted Item"></span>
+			<select id="idSupplier" name="supplier" class="form-control" style="width: 100%;" data-src="getSuppliers" data-allowclear="true">
+			<option value=""></option>
+			</select>
+          </div>
+		  <div class="form-group col-md-7">
+            <label for="idDesc">Description</label>
+            <input type="text" class="form-control" id="idDesc" name="desc" placeholder="Description" required maxlength="250">
+          </div>
+		  <div class="form-group col-md-3">
+            <label for="idQty">Qty</label>
+              <div class="input-group">
+				<input type="number" class="form-control" id="idQty" name="qty" placeholder="Quantity" required maxlength="8" step="0.01" style="width: 58%;margin-right:-1px">
+                
+                  <select id="idUnit" name="unit" class="form-control" required style="width: 42%" data-src="getUnits">
+					<option value=""></option>
+				  </select>
+                
+			  </div>
+              <!-- /btn-group -->
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idPriceUSD">Unit Price USD</label>
+            <input type="number" class="form-control" id="idPriceUSD" name="priceusd" pattern="[0-9.]{1,14}" placeholder="Unit Price USD" required maxlength="14" step="0.01">
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idPriceLBP">Unit Price LBP</label>
+            <input type="number" class="form-control" id="idPriceLBP" name="pricelbp" pattern="[0-9.]{1,14}" placeholder="Unit Price LBP" required maxlength="14" step="1">
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idPriceEUR">Unit Price EUR</label>
+            <input type="number" class="form-control" id="idPriceEUR" name="priceeur" pattern="[0-9.]{1,14}" placeholder="Unit Price EUR" required maxlength="14" step="0.01">
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idTVA">TVA</label>
+              <select id="idTVA" name="tva" class="form-control">
+				<option value=""></option>
+				<option value="+VAT">+VAT</option>
+				<option value="TTC">TTC</option>
+			  </select>
+          </div>
+		  
+
+		</div>
+		  
+			  
+			  </div>
+            <!-- /.tab-content -->
+
+	  </div> <!-- /#form-body -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+<!--#include virtual="/admin/inc/foot.shtml" -->
+<script src="script.js"></script>

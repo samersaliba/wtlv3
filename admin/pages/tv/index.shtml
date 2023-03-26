@@ -1,0 +1,64 @@
+<!--#set var="ssiTitle" value="SOMP | TV messages" -->
+<!--#include virtual="/admin/inc/head.shtml" -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        <i class="fa fa-television"></i> TV messages
+		<span data-popper="Messages appearing at the bottom of the TV screen"></span>
+        <small></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/admin/pages/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li class="active">TV messages</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="default-box"></div>
+      
+	  <!-- Default modal -->
+	  <div id="editModal"></div>
+	  
+		<div id="form-body"  style="display: none">
+            <ul class="nav nav-tabs" id="myTab">
+			  <li class="active pull-right"><a href="#tab_1" data-toggle="tab">Messages</a></li>
+			  <div class="h4">Msg: #<span id="idMsgID"></span></div>
+			</ul>
+			<div class="tab-content">
+              <div class="tab-pane active" id="tab_1">
+			
+        <div class="row" style="padding-top:20px">  
+		  <div class="form-group col-md-7">
+            <label for="idMsg">Message</label>
+            <input type="text" class="form-control" id="idMsg" name="msg" placeholder="Message" required maxlength="250">
+          </div>
+		  <div class="form-group col-md-3">
+            <label for="idHide">Hide?</label>
+			<select id="idHide" name="hide" class="form-control" style="width: 100%;">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+			</select>
+          </div>
+		  <div class="form-group col-md-2">
+            <label for="idOrder">Order</label>
+            <input type="number" class="form-control" id="idOrder" name="order" placeholder="Order" maxlength="2" required value="1">
+          </div>
+		</div>
+
+			  </div> <!-- /#tab_1 -->
+			</div> <!-- /.tab-content -->
+
+	  </div> <!-- /#form-body -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+<!--#include virtual="/admin/inc/foot.shtml" -->
+<script src="script.js"></script>

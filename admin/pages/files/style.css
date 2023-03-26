@@ -1,0 +1,88 @@
+div.gallery {
+  margin: 5px;
+  /*  border: 1px solid #fff; */
+  /* float: left; */
+  width: 128px;
+  height: 178px;
+  cursor: arrow;
+  border: 1px solid rgba(0, 0, 0, 0);
+  
+   -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+
+
+div.gallery:hover {
+  /* border: 1px solid #777; */
+  background-color: #dbecff;
+  border: 1px solid #4185f2;
+}
+
+div.gallery-selected {
+	background-color: #dbecff;
+}
+
+div.gallery img {
+  width: 128px;
+  height: 128px;
+  border-radius: 5px;
+}
+
+div.gallery img.obj {
+	opacity: 0.5;
+}
+
+div.gallery.newfile {
+  background-color: #ffe6e6;
+  cursor: not-allowed;
+}
+
+div.desc {
+  padding: 0px;
+  text-align: center;
+  height: 50px;
+  overflow: hidden;
+  word-wrap: break-word;
+  cursor: pointer;
+
+}
+
+.onDrag {
+  background-color: #eee;
+}
+
+#folder {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.infonote {
+  border: 1px solid #c49102;
+  background-color: #fff2cc;
+  text-align: left;
+  padding:3px;
+}
+
+@media screen and (max-width: 800px) {
+  div.gallery {
+    width: 100px;
+    height: 150px;
+  }
+  div.gallery img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  div.desc {
+    height: 50px;
+  }
+  
+}
+

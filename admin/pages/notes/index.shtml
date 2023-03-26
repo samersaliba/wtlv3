@@ -1,0 +1,59 @@
+<!--#set var="ssiTitle" value="SOMP | Notes" -->
+<!--#include virtual="/admin/inc/head.shtml" -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        <i class="fa fa-envelope"></i> Notes
+		<span data-popper="Send notes to other users or to self"></span>
+        <small></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/admin/pages/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li class="active">Notes</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="default-box"></div>
+      
+	  <!-- Default modal -->
+	  <div id="editModal"></div>
+	  
+		<div id="form-body"  style="display: none">
+            <ul class="nav nav-tabs" id="myTab">
+			  <li class="active pull-right"><a href="#tab_1" data-toggle="tab">Note</a></li>
+			  <div class="h4">Note: #<span id="idNoteID"></span></div>
+			</ul>
+			<div class="tab-content">
+              <div class="tab-pane active" id="tab_1">
+			
+        <div class="row" style="padding-top:20px">  
+		  <div class="form-group col-md-3">
+            <label for="idTo">To</label>
+			<select id="idTo" name="userid" class="form-control" style="width: 100%;" data-src="getLogUsers" required>
+			<option value=""></option>
+			</select>
+          </div>
+		  <div class="form-group col-md-7">
+            <label for="idDesc">Description</label>
+            <input type="text" class="form-control" id="idDesc" name="desc" placeholder="Description" required maxlength="250">
+          </div>
+		</div>
+
+			  </div> <!-- /#tab_1 -->
+			</div> <!-- /.tab-content -->
+
+	  </div> <!-- /#form-body -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+<!--#include virtual="/admin/inc/foot.shtml" -->
+<script src="script.js"></script>

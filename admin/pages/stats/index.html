@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>
+		SOMP s.a.l.
+	</title>
+	<meta name="description" content="SOMP is a regional leader factory and foundry for Heavy Machinery Repair based in Beirut, Lebanon.">
+
+
+	<meta name="Keywords" content="heavy machinery repair, SOMP, metalworking, metal, iron, foundry, bronze, lathe, lebanon, horizontal boring, hobbing, gears, gearbox, dynamic balancing, casting, cast iron">
+	<meta charset="utf-8">
+	<meta name="robots" content="index,follow" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/admin/pages/stats/bootstrap/4.1.0/css/bootstrap.min.css">
+	  <!-- Font Awesome -->
+	<link rel="stylesheet" href="/admin/plugins/font-awesome/css/font-awesome.min.css">
+	<script src="/admin/plugins/jquery/dist/jquery.min.js"></script>
+	<script src="/admin/pages/stats/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+@font-face {
+  font-family: 'alarm-clock';
+    src:  url('/admin/res/font/alarm-clock.ttf.woff') format('woff'),
+    url('/admin/res/font/alarm-clock.ttf.svg#alarm-clock') format('svg'),
+    url('/admin/res/font/alarm-clock.ttf.eot'),
+    url('/admin/res/font/alarm-clock.eot?#iefix') format('embedded-opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+.carousel-inner img {
+	width: 100%;
+	height: 730px;
+	object-fit: cover;  
+}
+.carousel-caption h3{
+	font-size: 4vw;
+	color: var(--warning);
+	text-shadow: 2px 2px #000;
+}
+.carousel-caption p{
+	font-size: 1.5vw;
+	text-transform: uppercase;
+}
+
+.carousel-caption a{
+	color: #fff;
+}
+#scroll {
+	width:100%;
+	border-top:var(--warning) solid 5px; /*ff6161*/
+	bottom:0px;
+	left:0px;
+	position:fixed;
+	background-color:#333; /*a40000*/
+	color:white;
+	padding-top:0px; display: block;
+	font-size:20px;
+	font-face:Tahoma;
+	margin: 0px 0px 0px 0px;
+}
+
+#idTime {
+	font-family: 'alarm-clock';  
+	font-size:25px;
+	padding: 0 0 0 10px;
+	color: white;
+	border: 0px;
+	
+
+}
+#idAMPM, #idDate {
+	font-size:10px;
+	font-family: 'alarm-clock';
+	float: left;
+}
+
+#idDate{
+	margin-top: -19px;
+}
+
+{
+background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E")
+}
+
+	</style>
+	
+</head>
+<body>
+<div id="idTvScreen" class="carousel slide" data-pause="false" data-interval="10000" data-ride="carousel" onmousedown="openFullscreen();">
+
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-interval="20000">
+		<img class="d-block" src="/img/slides/stats.jpg" alt="Statistics">
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/stainlesspipes.jpg" alt="Power Generation">
+	  <div class="carousel-caption text-left">
+        <h3>Industrial Stainless Steel Pipes</h3>
+        <p>Stainless steel pipes for fuel unloading system</p>
+      </div>
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/coredrills.jpg" alt="Power Generation">
+	  <div class="carousel-caption text-left">
+        <h3>Rotary Core Drill</h3>
+        <p>core drill pipes manufacturing and repair</p>
+      </div>
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/turbineshaft-b.jpg" alt="Power Generation">
+	  <div class="carousel-caption text-left">
+        <h3>Power Generation Services</h3>
+        <p>ON-SITE MACHINING OF LARGE COMPONENTS USING CUSTOMIZED MACHINES</p>
+      </div>
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/turbineshaft.jpg" alt="Power Generation">
+	  <div class="carousel-caption text-left">
+        <h3>Power Generation Services</h3>
+        <p>MACHINING OF STEAM TURBINE SHAFT, 19 TONS, 160 MegaWatts, 5.5 METERS</p>
+      </div>
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/slide1-b2.jpg" alt="Power Generation">
+	  <div class="carousel-caption text-left">
+        <h3>Industrial Engines Services</h3>
+        <p>Cylinder Heads and Liners Overhauling</p>
+      </div>
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/slide1-b.jpg" alt="Power Generation">
+	  <div class="carousel-caption text-left">
+        <h3>Industrial Engines Services</h3>
+        <p>Wartsila & MAK - 2 to 12 MegaWatts</p>
+      </div>
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/slide1-b3.jpg" alt="Power Generation">
+	  <div class="carousel-caption text-left">
+        <h3>Industrial Engines Services</h3>
+        <p>Valves Grinding, Valve Guides Replacement, Valve Springs Set Overhauling,<br> Valve Seats Machining, Special Painting</p>
+      </div>
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/liners.jpg" alt="Power Generation">
+	  <div class="carousel-caption text-left">
+        <h3>Industrial Engines Services</h3>
+        <p>Liners Cleaning, Honing, Lapping, Pitting Repair, Crack testing</p>
+      </div>
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/slide2-b.jpg" alt="Sandblasting & Painting">
+	  <div class="carousel-caption text-left">
+        <h3>Sandblasting & Painting</h3>
+        <p>WE PAINT YOUR BULK TRAILERS WITH LOGO APPLICATION</p>
+      </div>
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/slide2-b2.jpg" alt="Sandblasting & Painting">
+	  <div class="carousel-caption text-left">
+        <h3>Sandblasting & Painting</h3>
+        <p>WE PAINT YOUR BULK TRAILERS WITH LOGO APPLICATION</p>
+      </div>
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/slide2.jpg" alt="Sandblasting & Painting">
+	  <div class="carousel-caption text-left">
+        <h3>Sandblasting & Painting</h3>
+        <p>WE PAINT YOUR BULK TRAILERS WITH LOGO APPLICATION</p>
+      </div>
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/slide3-b.jpg" alt="On-site boring machine">
+	  <div class="carousel-caption text-left">
+        <h3>On-site Machining</h3>
+        <p>PORTABLE AND WELDING BORING MACHINE FOR EARTH MOVING AND CONSTRUCTION TRUCKS</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/slide3.jpg" alt="On-site boring machine">
+	  <div class="carousel-caption text-left">
+        <h3>On-site Machining</h3>
+        <p>PORTABLE AND WELDING BORING MACHINE FOR EARTH MOVING AND CONSTRUCTION TRUCKS</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/spectrometer.jpg" alt="Testing Services">
+	  <div class="carousel-caption text-left">
+        <h3>Testing Services</h3>
+        <p>SPECTROMETER, HARDNESS, ROUGHNESS, COATING THICKNESS, METAL THICKNESS</p>
+      </div>
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/dynamicbalancing-b.jpg" alt="Dynamic Balancing">
+	  <div class="carousel-caption text-left">
+        <h3>Dynamic Balancing</h3>
+        <p>TURBOCHARGERS, IMPELLERS, ELECTRIC MOTOR'S ROTOR, SHIP PROPELLER, ...</p>
+      </div>
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/dynamicbalancing.jpg" alt="Dynamic Balancing">
+	  <div class="carousel-caption text-left">
+        <h3>Dynamic Balancing</h3>
+        <p>SMALL AND UP TO DIA. 3 METERS AND 5 METERS LENGTH</p>
+      </div>
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/impellerbalance.jpg" alt="Dynamic Balancing">
+	  <div class="carousel-caption text-left">
+        <h3>Dynamic Balancing</h3>
+        <p>IMPELLERS: SMALL AND UP TO DIA. 3 METERS AND 5 METERS LENGTH</p>
+      </div>
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/rotorbalance.jpg" alt="Dynamic Balancing">
+	  <div class="carousel-caption text-left">
+        <h3>Dynamic Balancing</h3>
+        <p>ELECTRIC MOTOR'S ROTOR: SMALL AND UP TO DIA. 3 METERS AND 5 METERS LENGTH</p>
+      </div>
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/propellerbalance.jpg" alt="Dynamic Balancing">
+	  <div class="carousel-caption text-left">
+        <h3>Dynamic Balancing</h3>
+        <p>SHIP PROPELLER: SMALL AND UP TO DIA. 3 METERS</p>
+      </div>
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/gear.jpg" alt="Gears Manufacturing">
+	  <div class="carousel-caption text-left">
+        <h3>Gears Manufacturing</h3>
+        <p>UP TO 2 METERS IN DIAMETER, HELICAL AND STRAIGHT</p>
+      </div>
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/machining.jpg" alt="Turning and Milling">
+	  <div class="carousel-caption text-left">
+        <h3>Turning and Milling</h3>
+        <p>LARGE AND SMALL SIZES: UP TO 5 METERS DIAMETER AND 10 METERS LENGTH</p>
+      </div>
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/bakingwheel.jpg" alt="Turning and Milling">
+	  <div class="carousel-caption text-left">
+        <h3>Turning and Milling</h3>
+        <p>MANUFACTURING OF A BAKING WHEEL WITH EXACT HEAT DISTRIBUTION</p>
+      </div>
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/separator.jpg" alt="Overhauling of Mechanical Components">
+	  <div class="carousel-caption text-left">
+        <h3>Overhauling of Mechanical Components</h3>
+        <p>LARGE AND SMALL SIZES: Separators, Gearboxes, Pumps, Geared Motors, Electric Motors</p>
+      </div>
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/electricmotor.jpg" alt="Overhauling of Mechanical Components">
+	  <div class="carousel-caption text-left">
+        <h3>Overhauling of Mechanical Components</h3>
+        <p>Electric Motors: 6kV, 1800kW, 1000rpm - Overhaul and Epoxy painting</p>
+      </div>
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/pump.jpg" alt="Overhauling of Mechanical Components">
+	  <div class="carousel-caption text-left">
+        <h3>Overhauling of Mechanical Components</h3>
+        <p>Pumps: replace shafts, seals, impellers, beairngs - Overhaul and Epoxy painting</p>
+      </div>
+    </div>
+	<div class="carousel-item" data-interval="10000">
+      <img class="d-block" src="/img/slides/tires.jpg" alt="Overhauling of Mechanical Components">
+	  <div class="carousel-caption text-left">
+        <h3>Tires Repair</h3>
+        <p>FOR WHEEL LOADERS AND LARGE TRUCKS</p>
+      </div>
+    </div>
+	
+  </div>
+  <a class="carousel-control-prev" href="#intro" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#intro" data-slide="next" id="nexticon">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+
+
+<div id="scroll">
+	<span id="idTime">00:00</span>
+	<span style="display: inline-block;">
+		<span id="idAMPM">AM</span><br>
+		<span id="idDate">0000-00-00</span>
+	</span>
+</div>
+<div style="bottom:10px;right:10px;position:fixed;">
+	<img src="/admin/res/img/logo-v4-white border.png">
+</div>
+
+
+<script>
+	//<marquee style="width:75%" behavior="scroll" direction="left" scrollamount="3" id="scrollData">SOMP</marquee>
+	function getValue(param, f){
+	$.ajax({
+		url: "/admin/script/",
+		method: 'POST',
+		data: param,
+		cache: false
+	}).done(f);
+	}
+	
+	
+	function openFullscreen() {
+		//var elem = document.getElementById("idTvScreen");
+		var elem = document.documentElement;
+		if (elem.requestFullscreen) {
+			elem.requestFullscreen();
+		} else if (elem.mozRequestFullScreen) { /* Firefox */
+			elem.mozRequestFullScreen();
+		} else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+			elem.webkitRequestFullscreen();
+		} else if (elem.msRequestFullscreen) { /* IE/Edge */
+			elem.msRequestFullscreen();
+		}
+	}
+  
+	function playCarousel(){
+		setTimeout(function(){
+			$("#idTvScreen").carousel("cycle");
+		}, 20000);
+	}
+  
+	//$("#idTvScreen").carousel("pause");
+	//document.getElementById("nexticon").focus();
+	var myVar;
+	var loaded=false;
+		myVar = setInterval(function(){
+			displayDate();
+		if (!loaded){
+		document.getElementById("nexticon").focus();
+			getValue({action:'getTvMsgs'},function(data){
+				var output='';
+				if (data.status){
+					loaded=true;
+					for (var i = 0; i < data.data.length; i++) {
+						output+=data.data[i].msg;
+						output+= '<img src="/admin/res/img/marquee-separator.png" style="vertical-align:middle;padding:0px 100px 0px 100px">';
+					}
+				}
+				//$('#scrollData').html(output);
+				$('#scroll').append('<marquee style="width:75%" behavior="scroll" direction="left" scrollamount="3" id="scrollData">' + output + '</marquee>');
+			});
+		}
+		
+		}, 5*1000);
+		
+		$(document).bind('keyup', function(e) {
+			if(e.which == 39){
+				$('.carousel').carousel('next');
+			}
+			else if(e.which == 37){
+				$('.carousel').carousel('prev');
+			}
+			else if(e.which == 38){
+				openFullscreen();
+			}
+			else if(e.which == 40){
+				location.reload(true);
+			}
+		});
+	
+	$(function () {
+		//setTimeout(function(){document.getElementById("idTvScreen").click();}, 20000);
+		
+	document.getElementById("idTvScreen").focus();
+	
+	});
+  
+  
+	//Get deley from each carousel element
+	$.fn.carousel.Constructor.prototype.cycle = function (event) {
+		if (!event) {
+			this._isPaused = false;
+		}
+
+		if (this._interval) {
+			clearInterval(this._interval)
+			this._interval = null;
+		}
+
+		if (this._config.interval && !this._isPaused) {
+			var $ele = $('.carousel-item-next');
+			var newInterval = $ele.data('interval') || this._config.interval;
+			this._interval = setInterval((document.visibilityState ? this.nextWhenVisible : this.next).bind(this), newInterval);
+		}
+	};
+   
+	function displayDate(){
+		var today = new Date();
+		var date = today.getFullYear()
+			+ '-' + (today.getMonth()<9?'0' :'') + (today.getMonth()+1)
+			+ '-' + (today.getDate()<10?'0':'') + today.getDate();
+		var ampm = (today.getHours()<12?'AM':'PM');
+		var Hours = (today.getHours()>12?today.getHours()-12:today.getHours()) 
+		var time = (Hours<10?'0':'') 
+			+ Hours 
+			+ ":" + (today.getMinutes()<10?'0':'') 
+			+ today.getMinutes();
+		
+		$('#idTime').text(time);
+		$('#idDate').text(date);
+		$('#idAMPM').text(ampm);
+	}
+  
+</script>
+
+</body>
+</html>

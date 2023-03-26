@@ -1,0 +1,64 @@
+<!--#set var="ssiTitle" value="SOMP | Locations" -->
+<!--#include virtual="/admin/inc/head.shtml" -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        <i class="fa fa-map-pin"></i> Locations
+		<span data-popper="Locations in the plant"></span>
+        <small></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/admin/pages/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Locations</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="default-box"></div>
+      
+	  <!-- Default modal -->
+	  <div id="editModal"></div>
+	  
+       
+		<div id="form-body"  style="display: none">
+            <ul class="nav nav-tabs" id="myTab">
+			  <li class="active pull-right"><a href="#tab_1" data-toggle="tab">Locations</a></li>
+			  <div class="h4">Locations</div>
+			</ul>
+			<div class="tab-content">
+              <div class="tab-pane active" id="tab_1">
+			
+        <div class="row" style="padding-top:20px">  
+		  
+		  <div class="form-group col-md-3">
+		    <label for="idCode">Code</label>
+			<input type="text" class="form-control" id="idCode" name="code" required maxlength="50">
+		  </div>
+		  <div class="form-group col-md-6">
+            <label for="idDesc">Description</label>
+			<input type="text" class="form-control" id="idDesc" name="desc" required maxlength="100">
+          </div>
+		  <div class="form-group col-md-3">
+            <label for="idX" class="planMap">Coordinates </label>
+			<input type="text" class="form-control" id="idX" name="x" required min="0" maxlength="10">
+          </div>
+		</div>  
+		
+		
+			  </div> <!-- /#tab_1 -->
+			</div> <!-- /.tab-content -->
+
+		</div> <!-- /#form-body -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+<!--#include virtual="/admin/inc/foot.shtml" -->
+<script src="script.js"></script>
